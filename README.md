@@ -1,4 +1,4 @@
-# raspberrypi-NAS
+# raspberrypi-NAS Personal Storage Server
 Build your own NAS server using a Raspberry Pi Zero 2W using samba. Step-by-step tutorial for biginers.<br>
 I will use `samba` for creating our NAS storage server.
 
