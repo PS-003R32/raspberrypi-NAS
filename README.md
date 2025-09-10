@@ -10,4 +10,27 @@ I will use `samba` for creating our NAS storage server.
 - Now mount the device to the directory we created above, `sudo mount /dev/sdb1 /mnt/storage`. (The device path can be different for you)
 
 ---
-[Warning: In progress. Check out later...\]
+# Install samba
+- Install `samba` from the bash shell, `sudo apt update && sudo apt install samba samba-common-bin -y`
+## Edit smb.conf
+- Before editing the `smb.conf` file create a backup for the original file: `sudo mv /etc/samba/smb.conf /etc/samba/smb.conf.bak`.
+- Copy and paste the `smb.conf` file in this repository. *(replace the <username> in the valid users line in the file)*
+- Create a new user for SMB or use any existing user to set the password for the smb service and add it in valid users in the smb.conf file.
+- Set the passowrd for the smb service using: `sudo smbpasswd -a <username>`.
+- Change the ownership: `sudo chown -R 777 username:username /mnt/storage`
+- Restart the srevices: `sudo systemctl restart smbd nmbd`
+
+---
+# Access Storage
+- Press `Win+R` and type `\\<IPofRPI>\storage`. Press enter. (Example: \\192.168.172.180\storage).
+- It will asp for the username and password for the SMB service.
+- You can also access the storage from a browser, type the `\\<IPofRPI>\storage` in the address field.
+
+---
+# My YouTube tutorial
+[Storage Server](https://youtu.be/_ntcCw6miC4?si=GVUh6ID_Wf7r9Ptb)
+
+---
+# Issues
+- For any issues check out the `Troubleshoot.txt` file in this repository.
+- For other issues you can open up new Issue in this repository.
