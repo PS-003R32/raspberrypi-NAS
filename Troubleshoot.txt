@@ -1,1 +1,18 @@
-I
+# Can't Access files.
+- If you cant access files from another device on the network, then format the storage connected to
+  the raspberry pi to 'ext4' using the command: sudo mkfs.ext4 <path to the storage> (format it after unmounting, sudo umount <storage path>)
+
+# Mounting issues
+(Check the path of the storage device using: sudo lsblk)
+- Unmount the storage if it gets auto mounted using 'sudo umount /<path to the storage>
+- Create a directory name it 'storage' in the /mnt directory. Then mount using 'sudo' mount /dev/sdb1 /mnt/storage
+
+# SMB issues.
+- If you can't set password for the smb user then check if the user is added to the machine (raspberrypi) 
+  using: id <username>. (you should first create a new user (sudo adduser --allow-bad-names username) or check if the user is added (id <username>.
+  Then add it in the smb.conf as valid user and also set the passord.
+- If the storage still not available the check for the user permissions set on the /mnt/storage directory.
+  Change the permissions to 777 using: sudo chown -R 777 username:username /mnt/storage
+- Once done restart the smbd and nmbd services: sudo systemctl restart smbd nmbd
+
+# If you encounter any other issues, you can create a new Issue in this repository.
