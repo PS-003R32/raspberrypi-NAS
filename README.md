@@ -29,7 +29,7 @@ I will use `samba` for creating our NAS storage server.
 
 ---
 # Access Storage
-- Press `Win+R` and type `\\<IPofRPI>\storage`. Press enter. (Example: /\\192.168.172.180\storage).
+- Press `Win+R` and type `\\<IPofRPI>\storage`. Press enter. (Example: `\\192.168.172.180\storage`).
 - It will asp for the username and password for the SMB service.
 - You can also access the storage from a browser, type the `\\<IPofRPI>\storage` in the address field.
 
