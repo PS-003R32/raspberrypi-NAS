@@ -10,6 +10,13 @@ I will use `samba` for creating our NAS storage server.
 - Now mount the device to the directory we created above, `sudo mount /dev/sdb1 /mnt/storage`. (The device path can be different for you)
 
 ---
+
+# Edit fstab file
+- Get the `UUID` of the storage device by using the command: `sudo blkid /dev/sda1`. (change the path for your device).
+- Add this line, `UUID=your_uuid  /mnt/storage  ext4  defaults,nofail  0  2`, to the `sudo nano /etc/fstab` file.
+- This will ensure the storage is auto mounted and set-up after device reboots.
+
+---
 # Install samba
 - Install `samba` from the bash shell, `sudo apt update && sudo apt install samba samba-common-bin -y`
 ## Edit smb.conf
@@ -28,7 +35,7 @@ I will use `samba` for creating our NAS storage server.
 
 ---
 # My YouTube tutorial
-[Storage Server](https://youtu.be/_ntcCw6miC4?si=GVUh6ID_Wf7r9Ptb)
+- Click [Storage Server](https://youtu.be/_ntcCw6miC4?si=GVUh6ID_Wf7r9Ptb) to view a step-by-step tutorial for this project.
 
 ---
 # Issues
